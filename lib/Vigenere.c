@@ -1,26 +1,7 @@
-#include "chiffrage.h"
+#include "Vigenere.h"
 
 #include <stddef.h>
-
-char* chiffre_ROT13(char* clair)
-{
-    return NULL;
-}
-
-char* dechiffre_ROT13(char* chiffre)
-{
-    return NULL;
-}
-
-char* chiffre_Cesar(char* clair, char const cle)
-{
-    return NULL;
-}
-
-char* dechiffre_Cesar(char* chiffre, char const cle)
-{
-    return NULL;
-}
+#include <stdio.h>
 
 char* chiffre_Vigenere(char* clair, char const* cle)
 {
