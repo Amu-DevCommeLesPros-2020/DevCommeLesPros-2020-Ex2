@@ -105,6 +105,62 @@ int main()
     TEST_STR(dechiffre_Cesar(clair, 'z'), "Je laisse mes biens à ma soeur. Non à mon neveu. Jamais sera payé le compte du tailleur. Rien aux pauvres.");
 
 
+    // Tests chiffre_Vigenere.
+    strcpy(clair, "a");
+    TEST_STR(chiffre_Vigenere(clair, "a"), "a");
+    strcpy(clair, "abcdefghijklmnopqrstuvwxyz");
+    TEST_STR(chiffre_Vigenere(clair, "a"), "abcdefghijklmnopqrstuvwxyz");
+    strcpy(clair, "abcdefghijklmnopqrstuvwxyz");
+    TEST_STR(chiffre_Vigenere(clair,"abc"), "acedfhgikjlnmoqprtsuwvxzya");
+    strcpy(clair, "abcdefghijklmnopqrstuvwxyz");
+    TEST_STR(chiffre_Vigenere(clair,"zzz"), "zabcdefghijklmnopqrstuvwxy");
+    strcpy(clair, "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    TEST_STR(chiffre_Vigenere(clair, "a"), "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    strcpy(clair, "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    TEST_STR(chiffre_Vigenere(clair, "abc"), "aCedFHgikJLNmoqpRTSUwVxZyA");
+    strcpy(clair, "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    TEST_STR(chiffre_Vigenere(clair, "zzz"), "zAbcDEfghIJKlmnoPQRStUvWxY");
+    strcpy(clair, "A, a.");
+    TEST_STR(chiffre_Vigenere(clair, "a"), "A, a.");
+    strcpy(clair, "A, a.");
+    TEST_STR(chiffre_Vigenere(clair, "abc"), "A, b.");
+    strcpy(clair, "A, a.");
+    TEST_STR(chiffre_Vigenere(clair, "zzz"), "Z, z.");
+    strcpy(clair, "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    TEST_STR(chiffre_Vigenere(clair, "a"), "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    strcpy(clair, "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    TEST_STR(chiffre_Vigenere(clair, "abc"), "Jf najusf oet difps à nc spgus ? Poo ! À ooo pewgu ? Kcmbks ! Tgrb razé ne dqmqve ew tbklmgus. Tifp avz pbwvsgs.");
+    strcpy(clair, "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    TEST_STR(chiffre_Vigenere(clair, "zzz"), "Id kzhrrd ldr ahdmr à lz rndtq ? Mnm ! À lnm mdudt ? Izlzhr ! Rdqz ozxé kd bnlosd ct szhkkdtq. Qhdm ztw oztuqdr.");
+
+    // Tests dechiffre_Vigenere.
+    strcpy(clair, "a");
+    TEST_STR(dechiffre_Vigenere(clair, "a"), "a");
+    strcpy(clair, "abcdefghijklmnopqrstuvwxyz");
+    TEST_STR(dechiffre_Vigenere(clair, "a"), "abcdefghijklmnopqrstuvwxyz");
+    strcpy(clair, "acedfhgikjlnmoqprtsuwvxzya");
+    TEST_STR(dechiffre_Vigenere(clair,"abc"), "abcdefghijklmnopqrstuvwxyz");
+    strcpy(clair, "zabcdefghijklmnopqrstuvwxy");
+    TEST_STR(dechiffre_Vigenere(clair,"zzz"), "abcdefghijklmnopqrstuvwxyz");
+    strcpy(clair, "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    TEST_STR(dechiffre_Vigenere(clair, "a"), "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    strcpy(clair, "aCedFHgikJLNmoqpRTSUwVxZyA");
+    TEST_STR(dechiffre_Vigenere(clair, "abc"), "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    strcpy(clair, "zAbcDEfghIJKlmnoPQRStUvWxY");
+    TEST_STR(dechiffre_Vigenere(clair, "zzz"), "aBcdEFghiJKLmnopQRSTuVwXyZ");
+    strcpy(clair, "A, a.");
+    TEST_STR(dechiffre_Vigenere(clair, "a"), "A, a.");
+    strcpy(clair, "A, b.");
+    TEST_STR(dechiffre_Vigenere(clair, "abc"), "A, a.");
+    strcpy(clair, "Z, z.");
+    TEST_STR(dechiffre_Vigenere(clair, "zzz"), "A, a.");
+    strcpy(clair, "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    TEST_STR(dechiffre_Vigenere(clair, "a"), "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    strcpy(clair, "Jf najusf oet difps à nc spgus ? Poo ! À ooo pewgu ? Kcmbks ! Tgrb razé ne dqmqve ew tbklmgus. Tifp avz pbwvsgs.");
+    TEST_STR(dechiffre_Vigenere(clair, "abc"), "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+    strcpy(clair, "Id kzhrrd ldr ahdmr à lz rndtq ? Mnm ! À lnm mdudt ? Izlzhr ! Rdqz ozxé kd bnlosd ct szhkkdtq. Qhdm ztw oztuqdr.");
+    TEST_STR(dechiffre_Vigenere(clair, "zzz"), "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
+
     return resultat;
 
 }
