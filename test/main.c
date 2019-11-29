@@ -1,5 +1,10 @@
 #include "chiffrage.h"
 
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#include <stdlib.h>
 #include <string.h>
 
 int main()
@@ -8,13 +13,22 @@ int main()
     // Le but est de la garder à 0.
     int resultat = 0;
 
-#define TEST_STR(a, b) if((a == NULL) || (strcmp(a, b) != 0))    \
-                       {                        \
-                           resultat += 1;       \
-                       }
+// Compare deux chaînes de caractères a et b avec strcmp. Incrémente résultat si a est NULL ou si les deux chaînes sont différentes.
+#define TEST_STR(a, b)  if((a == NULL) || (strcmp(a, b) != 0))  \
+                        {                                       \
+                            resultat += 1;                      \
+                        }
+
+// Compare le contenu de deux fichiers aux chemins a et b avec la commande diff. Incrémente résultat si les fichiers sont différents.
+// La sortie de la commande diff est redirigé vers /dev/null uniquement pour garder ce programme complètement muet.
+#define TEST_FILE(a, b) {                                                                   \
+                            int const r = system("diff --text " a " " b " > /dev/null");    \
+                            resultat += WEXITSTATUS(r);                                     \
+                        }
+
 
     char clair[128];
-    
+
     // Tests chiffre_ROT13
     strcpy(clair, "a");
     TEST_STR(chiffre_ROT13(clair), "n");
@@ -161,6 +175,19 @@ int main()
     strcpy(clair, "Id kzhrrd ldr ahdmr à lz rndtq ? Mnm ! À lnm mdudt ? Izlzhr ! Rdqz ozxé kd bnlosd ct szhkkdtq. Qhdm ztw oztuqdr.");
     TEST_STR(dechiffre_Vigenere(clair, "zzz"), "Je laisse mes biens à ma soeur ? Non ! À mon neveu ? Jamais ! Sera payé le compte du tailleur. Rien aux pauvres.");
 
-    return resultat;
 
+    // Tests chiffre_Vigenere_flux_texte.
+    mkdir("build/test", 0755);
+    FILE *fichier_resultat = fopen("build/test/resultat.txt", "w");
+    FILE *fichier_clair = fopen("test/clair.txt", "r");
+    chiffre_Vigenere_flux_texte(fichier_resultat, fichier_clair, "agatha");
+    TEST_FILE("build/test/resultat.txt", "test/chiffre.txt");
+
+    // Tets dechiffre_Vigenere_flux_texte.
+    fichier_resultat = fopen("build/test/resultat.txt", "w");
+    FILE *fichier_chiffre = fopen("test/chiffre.txt", "r");
+    dechiffre_Vigenere_flux_texte(fichier_resultat, fichier_chiffre, "agatha");
+    TEST_FILE("build/test/resultat.txt", "test/clair.txt");
+
+    return resultat;
 }
