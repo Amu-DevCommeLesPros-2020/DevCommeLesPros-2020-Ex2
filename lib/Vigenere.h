@@ -12,7 +12,7 @@ char* dechiffre_Vigenere(char* chiffre, char const* cle);
 
 // Chiffre et déchiffre un flux de texte vers un autre flux.
 // L'implémentation et les restrictions sont les mêmes que (de)chiffre_Vigenere.
-void chiffre_Vigenere_flux_texte(FILE* clair, FILE* chiffre, char const* cle);
+void chiffre_Vigenere_flux_texte(FILE* chiffre, FILE* clair, char const* cle);
 void dechiffre_Vigenere_flux_texte(FILE* clair, FILE* chiffre, char const* cle);
 
 // Chiffre et déchiffre un flux binaire vers un autre flux.
@@ -26,5 +26,5 @@ void dechiffre_Vigenere_flux_texte(FILE* clair, FILE* chiffre, char const* cle);
 // Clé: "fil"
 // Fichier chiffré: [0x05, 0x09, 0x0D, 0x15, 0xB3, 0x09]
 // Explication: [0x00 + 'f' -> 0x05, 0x01 + 'i' -> 0x09, 0x02 + 'l' -> 0x0D, 0x10 + 'f' -> 0x15, 0xAB + 'i' -> 0xB3, 0xFC + 'l' -> 0x09]
-void chiffre_Vigenere_flux_binaire(FILE* clair, FILE* chiffre, char const* cle);
+void chiffre_Vigenere_flux_binaire(FILE* chiffre, FILE* clair, char const* cle);
 void dechiffre_Vigenere_flux_binaire(FILE* clair, FILE* chiffre, char const* cle);
