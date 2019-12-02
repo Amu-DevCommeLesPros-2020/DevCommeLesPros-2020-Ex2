@@ -41,3 +41,34 @@ Il ne vous est pas permis:
 - De modifier le fichier `test/main.c`.
 - De modifier les fichiers d'entête `lib/ROT13.h`, `lib/Cesar.h`, `lib/Vigenere.h` et `lib/chiffrage.h`.
 
+### Objectif bonus 1 (disponible à tous)
+
+Le mécanisme de chiffrage ROT13 n'est en fait qu'un cas particulier du mécanisme de chiffrage Cesar. C'est-à-dire que la fonction `chiffre_ROT13` peut être implementée en terme de la fonction `chiffre_Cesar`. Il en est de même pour la fonction `dechiffre_ROT13`. Le même raisonnement s'applique pour les fonctions `(de)chiffre_Cesar` qui sont elle-mêmes des cas particuliers des fonctions `(de)chiffre_Vigenere`.
+
+1. Complétez l'objectif principal.
+1. Revenez sur votre implémentation des fonctions `(de)chiffre_ROT13` et faites en sorte que leur travail soit accompli en appelant les fonctions `(de)chiffre_Cesar`.
+1. Revenez sur votre implétation des fonctions `(de)chiffre_Cesar` et faites en sorte que leur travail soit accompli en appelant les fonctions `(de)chiffre_Vigenere`.
+
+Ce bonus est sans limite de temps.
+
+### Objectif bonus 2 (compétitif)
+
+1. Complétez l'objectif principal.
+1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier texte chiffré bonus.
+1. Déchiffrez le fichier texte chiffré bonus avec votre programme `chiffre` et la bonne clé.
+1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur du texte.
+
+Ce bonus est sans limite de temps.
+
+### Objectif bonus 3 (compétitif)
+
+1. Complétez l'objectif principal.
+1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
+1. Implémentez correctement les fonctions de chiffrages `chiffre_Vigenere_flux_binaire` et `dechiffre_Vigenere_flux_binaire`.
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier MP3 chiffré bonus.
+1. Déchiffrez le fichier MP3 chiffré bonus avec votre programme `chiffre` et la bonne clé.
+1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur de la musique.
+
+Ce bonus est sans limite de temps.
+
