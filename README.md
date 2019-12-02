@@ -122,3 +122,8 @@ Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de
 
 Seul le code sur github.com compte.
 
+## "J'ai un problème !"
+
+Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
+
+
