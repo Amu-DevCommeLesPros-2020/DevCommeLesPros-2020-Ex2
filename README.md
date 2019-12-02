@@ -72,3 +72,53 @@ Ce bonus est sans limite de temps.
 
 Ce bonus est sans limite de temps.
 
+## Instructions de travail
+
+1. Créez une nouvelle branche qui servira de branche de travail pour réparer une première suite de tests.
+    - `> git branch [nom de la branche]`
+    - `> git checkout [nom de la branche]`
+    - Exemple: `> git branch reparation-ROT13`, `> git checkout reparation-ROT13`.
+1. Au fur et à mesure de vos modifications au code, intégrez-les au dépôt local avec une description des modifications apportées.
+    - `> git add [fichiers]`
+    - `> git commit -m "Description des modifications apportées"`
+    - Exemple: `> git add lib/ROT13.c`, `> git commit -m "Passe les tests de chiffrage sans ponctuations."`
+1. Périodiquement, publiez votre branche de votre dépôt local à votre dépôt sur github.com.
+    - `> git push origin [nom de la branche]`
+    - Exemple: `> git push origin reparation-ROT13`.
+1. Lorsqu'une suite de tests est réparée, ouvrez un "Pull Request" sur github.com pour fusionner la branche de travail à la branche `master`.
+    - Suivez ces instructions: https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
+1. Fusionnez la branche de travail sur github.com.
+    - Suivez ces instructions: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github
+    - Choisissez `Create a merge commit`. 
+1. Revenez sur la branche `master` de votre dépôt local et synchronisez-la avec la branche `master` de votre dépôt sur github.com.
+    - `> git checkout master`
+    - `> git pull origin master`
+
+Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de votre travail devrait au file du temps ressembler à ceci:
+
+```
+*   cac0381 (origin/master, origin/HEAD, master) Merge pull request #3 from [compte]/reparation-Cesar
+|\
+| * dd15e7c Passe tout les tests de déchiffrage aussi.
+| * 329025a Passe tout les tests de chiffrage.
+| * 6247b82 Passe tout les tests sans ponctuation.
+| * 3829cc5 Oups! Maintenant passe vraiment tous les tests avec lettres minuscules.
+| * 49261da Passe les tests de chiffrage avec les lettres minuscules.
+| * 4569e14 Passe les test avec chaînes longues mais j'ai cassé les tests avec chaînes courtes. J'y reviendrai.
+| * 4297b0e Passe les tests avec chaînes courtes.
+|/
+*   34678ab Merge pull request #2 from [compte]/reparation-ROT13
+|\
+| * 6c93b12 Passe tout les tests de déchiffrage aussi. Facile ! En fait, c'est la même chose dans les deux sens.
+| * b658f2b Passe tout les tests de chiffrage.
+| * 5d8c89b Passe les tests de chiffrage sans ponctuations.
+|/
+*   34678ab Merge pull request #1 from [compte]/reparation-makefile
+|\
+| * 5d8c89b Peut compiler, lancer et déboguer le programme test.
+|/
+* 68cb404 Initial commit
+```
+
+Seul le code sur github.com compte.
+
