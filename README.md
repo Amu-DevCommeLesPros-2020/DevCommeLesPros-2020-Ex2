@@ -27,3 +27,17 @@ Ces intructions présupposent que vous avez déjà suivi les instructions de l'[
     - Sous MacOS: 
         - `clang: error: linker command failed with exit code 1`
 
+
+## Objectif principal
+
+1. Réparez le fichier `makefile` pour faire en sorte que la bibliothèque `libchiffrage.a` contienne tous les fichiers objets nécéssaires (fussent-ils eux-même incomplets) et que le programme `test` puisse être correctment lié et lancé.
+1. Implémentez correctement toutes les fonctions de chiffrages (à l'exception de `chiffre_Vigenere_flux_binaire` et `dechiffre_Vigenere_flux_binaire`) pour que le programme `test` retourne `0`.
+
+Il vous est permis: 
+- De modifier le fichier `makefile`.
+- De modifier les fichiers `lib/ROT13.c`, `lib/Cesar.c` et `lib/Vigenere.c` afin d'implémenter les fonctions qu'ils contiennent.
+
+Il ne vous est pas permis:
+- De modifier le fichier `test/main.c`.
+- De modifier les fichiers d'entête `lib/ROT13.h`, `lib/Cesar.h`, `lib/Vigenere.h` et `lib/chiffrage.h`.
+
