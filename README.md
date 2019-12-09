@@ -126,4 +126,10 @@ Seul le code sur github.com compte.
 
 Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
 
+## Correction
 
+Dans le répertoire `correction`, vous trouverez le script que le professeur utilisera pour automatiser une première partie du processus de correction.
+Pour une liste de dépôts donnée dans `correction/depots.txt`, le script clone et compile le dépôt, lance le programme et affiche le résultat.
+Vous pouvez tester votre propre dépôt en l'ajoutant à ce fichier et en lancant le script à l'invite de commandes avec `> python3 correction.py`.
+
+La deuxième partie de la correction est une inspection visuelle de votre code.
