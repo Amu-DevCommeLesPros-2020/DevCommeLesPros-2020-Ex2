@@ -12,6 +12,7 @@ Ces intructions présupposent que vous avez déjà suivi les instructions de l'[
 1. Ajoutez le professeur comme collaborateur à votre dépôt.
     - Suivez ces instructions: https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
         - Nom d'utilisateur à ajouter: `thierryseegers`.
+        - Niveau de permission à donner: `Read`.
 1. Clonez votre dépôt vers votre espace de travail local.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
     - Attention à ne pas cloner https://github.com/thierryseegers/ProgImpAv-2020-Ex2 mais bien votre dépôt nouvellement créé.
@@ -19,6 +20,7 @@ Ces intructions présupposent que vous avez déjà suivi les instructions de l'[
     - À l'invite de commandes:
         - `> cd [nom de votre dépôt]`
         - `> code .`
+1. Si vous voyez le message `The debug type is not recognized. Make sure that you have a corresponding debug extension installed and that it is enabled.`, n'en tenez pas compte.
 1. Compilez une première fois le programme.
     - Menu: `View` > `Command Palette` > `Tasks: Run Build Task`
 1. Vous devriez observer dans l'onglet `TERMINAL` le résultat suivant:
@@ -39,7 +41,7 @@ Il vous est permis:
 
 Il ne vous est pas permis:
 - De modifier le fichier `test/main.c`.
-- De modifier les fichiers d'entête `lib/ROT13.h`, `lib/Cesar.h`, `lib/Vigenere.h` et `lib/chiffrage.h`.
+- De modifier les fichiers d'entête `lib/chiffrage.h`, `lib/ROT13.h`, `lib/Cesar.h`, `lib/Vigenere.h` et `lib/chiffrage.h`.
 
 ### Objectif bonus 1 (disponible à tous)
 
@@ -53,21 +55,27 @@ Ce bonus est sans limite de temps.
 
 ### Objectif bonus 2 (compétitif)
 
+Vous sentez-vous l'âme d'un cryptanalyste ? Il y a un fichier texte à déchiffrer.
+
 1. Complétez l'objectif principal.
 1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
-1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier texte chiffré bonus.
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier texte chiffré bonus. La clé est un mot français sans accent.
 1. Déchiffrez le fichier texte chiffré bonus avec votre programme `chiffre` et la bonne clé.
+1. Publiez votre code à votre dépôt sur github.com.
 1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur du texte.
 
 Ce bonus est sans limite de temps.
 
 ### Objectif bonus 3 (compétitif)
 
+Vous sentez-vous l'âme d'un cryptanalyste ? Il y a un fichier MP3 à déchiffrer.
+
 1. Complétez l'objectif principal.
 1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
 1. Implémentez correctement les fonctions de chiffrages `chiffre_Vigenere_flux_binaire` et `dechiffre_Vigenere_flux_binaire`.
-1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier MP3 chiffré bonus.
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier MP3 chiffré bonus. La clé est un mot français sans accent (différent de l'objectif bonus 2).
 1. Déchiffrez le fichier MP3 chiffré bonus avec votre programme `chiffre` et la bonne clé.
+1. Publiez votre code à votre dépôt sur github.com.
 1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur de la musique.
 
 Ce bonus est sans limite de temps.
@@ -89,12 +97,12 @@ Ce bonus est sans limite de temps.
     - Suivez ces instructions: https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
 1. Fusionnez la branche de travail sur github.com.
     - Suivez ces instructions: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github
-    - Choisissez `Create a merge commit`. 
+    - Choisissez `Create a merge commit` à l'étape 3. 
 1. Revenez sur la branche `master` de votre dépôt local et synchronisez-la avec la branche `master` de votre dépôt sur github.com.
     - `> git checkout master`
     - `> git pull origin master`
 
-Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de votre travail devrait au file du temps ressembler à ceci:
+Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de votre travail devrait au fil du temps ressembler à ceci (lire du bas vers le haut):
 
 ```
 *   cac0381 (origin/master, origin/HEAD, master) Merge pull request #3 from [compte]/reparation-Cesar
@@ -102,7 +110,7 @@ Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de
 | * dd15e7c Passe tout les tests de déchiffrage aussi.
 | * 329025a Passe tout les tests de chiffrage.
 | * 6247b82 Passe tout les tests sans ponctuation.
-| * 3829cc5 Oups! Maintenant passe vraiment tous les tests avec lettres minuscules.
+| * 3829cc5 Oups ! Maintenant passe vraiment tous les tests avec lettres minuscules.
 | * 49261da Passe les tests de chiffrage avec les lettres minuscules.
 | * 4569e14 Passe les test avec chaînes longues mais j'ai cassé les tests avec chaînes courtes. J'y reviendrai.
 | * 4297b0e Passe les tests avec chaînes courtes.
@@ -120,11 +128,11 @@ Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de
 * 68cb404 Initial commit
 ```
 
-Seul le code sur github.com compte.
+Seul le code de la branche `master` de votre dépôt sur github.com compte.
 
 ## "J'ai un problème !"
 
-Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
+Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1#jai-un-probl%C3%A8me-) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
 
 ## Correction
 
