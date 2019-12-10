@@ -18,8 +18,7 @@ import platform
 import pygit2
 
 def hash_test_code(main_path):
-    """Hashes all lines in file main_path.
-       The same function was used to hash the original main.c."""
+    """Hashes file main_path."""
     with open(main_path) as main:
         test_code_hash = hashlib.sha256()
         for line in main:
@@ -27,6 +26,8 @@ def hash_test_code(main_path):
     return test_code_hash.hexdigest()
 
 PROFESSOR_TEST_CODE_HEXDIGEST = 'd4f15976f23772064cbc86d02fb3e7c366e354012eb242b29466f0abe9721cb0'
+PROFESSOR_CHIFFRE_HEXDIGEST = '60ff41b09e4e1011d3a5f33704ec53df319a248d1de48250a131b809a85cb2db'
+PROFESSOR_CLAIR_HEXDIGEST = '4ef57703aad7ffd9f3129bb46c81a15308f1963e1f12ab00718f3569fde090f3'
 CALLBACKS = pygit2.RemoteCallbacks(credentials=pygit2.KeypairFromAgent("git"))
 
 with open('depots.txt') as remote_depot_names:
@@ -45,8 +46,9 @@ with open('depots.txt') as remote_depot_names:
                 raise RuntimeError('-1')
 
             # Confirm test code is intact.
-            student_test_code_hexdigest = hash_test_code(local_depot_path + '/test/main.c')
-            if student_test_code_hexdigest != PROFESSOR_TEST_CODE_HEXDIGEST:
+            if hash_test_code(local_depot_path + '/test/main.c') != PROFESSOR_TEST_CODE_HEXDIGEST or \
+               hash_test_code(local_depot_path + '/test/chiffre.txt') != PROFESSOR_CHIFFRE_HEXDIGEST or \
+               hash_test_code(local_depot_path + '/test/clair.txt') != PROFESSOR_CLAIR_HEXDIGEST:
                 raise RuntimeError('-2')
 
             # Compile.
