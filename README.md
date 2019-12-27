@@ -1,12 +1,12 @@
-# ProgImpAv-2020-Ex2
+# DevCommeLesPros-2020-Ex2
 Modèle de départ pour exercices d'introduction au makefile, à une structure de projet et aux bibliothèques logicielles.
 
 
 ## Instructions de départ
 
-Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1) pour la création de compte et l'installation des programmes et extensions nécéssaires.
+Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1) pour la création de compte et l'installation des programmes et extensions nécéssaires.
 
-1. Créez votre dépôt sur github.com en utilisant ce dépôt-ci (https://github.com/thierryseegers/ProgImpAv-2020-Ex2) comme modèle.
+1. Créez votre dépôt sur github.com en utilisant ce dépôt-ci (https://github.com/thierryseegers/DevCommeLesPros-2020-Ex2) comme modèle.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
     - Choisissez l'option `Private` à l'étape 5.
 1. Ajoutez le professeur comme collaborateur à votre dépôt.
@@ -14,7 +14,7 @@ Ces intructions présupposent que vous avez déjà suivi les instructions de l'[
         - Nom d'utilisateur à ajouter: `thierryseegers`.
 1. Clonez votre dépôt vers votre espace de travail local.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
-    - Attention à ne pas cloner https://github.com/thierryseegers/ProgImpAv-2020-Ex2 mais bien votre dépôt nouvellement créé.
+    - Attention à ne pas cloner https://github.com/thierryseegers/DevCommeLesPros-2020-Ex2 mais bien votre dépôt nouvellement créé.
 1. Lancez Visual Studio Code.
     - À l'invite de commandes:
         - `> cd [nom de votre dépôt]`
@@ -130,7 +130,7 @@ Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de
 
 ## "J'ai un problème !"
 
-Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1#jai-un-probl%C3%A8me-) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
+Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1#jai-un-probl%C3%A8me-) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
 
 ## Correction
 
