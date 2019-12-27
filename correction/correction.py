@@ -34,7 +34,7 @@ with open('depots.txt') as remote_depot_names:
     for remote_depot_name in itertools.dropwhile(lambda line: line.startswith('#'),
                                                  remote_depot_names):
         try:
-            # Craft URL to clone given a deopt name.
+            # Craft URL to clone given a depot name.
             remote_depot_name = remote_depot_name.rstrip()
             remote_depot_url = 'ssh://git@github.com/' + remote_depot_name + '.git'
             local_depot_path = remote_depot_name.replace('/', '-')
