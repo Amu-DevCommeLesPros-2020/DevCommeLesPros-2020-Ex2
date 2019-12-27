@@ -4,7 +4,7 @@ Modèle de départ pour exercices d'introduction au makefile, à une structure d
 
 ## Instructions de départ
 
-Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1) pour la création de compte et l'installation des programmes et eextensions nécéssaires.
+Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1) pour la création de compte et l'installation des programmes et extensions nécéssaires.
 
 1. Créez votre dépôt sur github.com en utilisant ce dépôt-ci (https://github.com/thierryseegers/ProgImpAv-2020-Ex2) comme modèle.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
@@ -12,7 +12,6 @@ Ces intructions présupposent que vous avez déjà suivi les instructions de l'[
 1. Ajoutez le professeur comme collaborateur à votre dépôt.
     - Suivez ces instructions: https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
         - Nom d'utilisateur à ajouter: `thierryseegers`.
-        - Niveau de permission à donner: `Read`.
 1. Clonez votre dépôt vers votre espace de travail local.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
     - Attention à ne pas cloner https://github.com/thierryseegers/ProgImpAv-2020-Ex2 mais bien votre dépôt nouvellement créé.
@@ -32,7 +31,7 @@ Ces intructions présupposent que vous avez déjà suivi les instructions de l'[
 
 ## Objectif principal
 
-1. Réparez le fichier `makefile` pour faire en sorte que la bibliothèque `libchiffrage.a` contienne tous les fichiers objets nécéssaires (fussent-ils eux-même incomplets) et que le programme `test` puisse être correctment lié et lancé.
+1. Réparez le fichier `makefile` pour faire en sorte que la bibliothèque `libchiffrage.a` contienne tous les fichiers objets nécéssaires (fussent-ils eux-même temporairement incomplets) et que le programme `test` puisse être correctment lié et lancé.
 1. Implémentez correctement toutes les fonctions de chiffrages (à l'exception de `chiffre_Vigenere_flux_binaire` et `dechiffre_Vigenere_flux_binaire`) pour que le programme `test` retourne `0`.
 
 Il vous est permis: 
@@ -101,6 +100,7 @@ Ce bonus est sans limite de temps.
 1. Revenez sur la branche `master` de votre dépôt local et synchronisez-la avec la branche `master` de votre dépôt sur github.com.
     - `> git checkout master`
     - `> git pull origin master`
+1. Répétez ces étapes jusqu'à ce que tout les tests passent.
 
 Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de votre travail devrait au fil du temps ressembler à ceci (lire du bas vers le haut):
 
@@ -128,8 +128,6 @@ Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de
 * 68cb404 Initial commit
 ```
 
-Seul le code de la branche `master` de votre dépôt sur github.com compte.
-
 ## "J'ai un problème !"
 
 Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/ProgImpAv-2020-Ex1#jai-un-probl%C3%A8me-) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
@@ -138,6 +136,13 @@ Outre les indications données dans l'[exercice précedent](https://github.com/t
 
 Dans le répertoire `correction`, vous trouverez le script que le professeur utilisera pour automatiser une première partie du processus de correction.
 Pour une liste de dépôts donnée dans `correction/depots.txt`, le script clone et compile le dépôt, lance le programme et affiche le résultat.
-Vous pouvez tester votre propre dépôt en l'ajoutant à ce fichier et en lancant le script à l'invite de commandes avec `> python3 correction.py`.
+Vous pouvez tester votre propre dépôt comme le fera le professeur:
+1. Installez le module pygit2 avec `> pip3 install pygit2` à l'invite de commandes.
+1. Ajoutez le nom de votre dépôt à la liste `correction/depots.txt`.
+1. Lancez le script à l'invite de commandes:
+    - `> cd correction`
+    - `> python3 correction.py`
 
 La deuxième partie de la correction est une inspection visuelle de votre code.
+
+Seul le code de la branche `master` de votre dépôt sur http://github.com compte !
