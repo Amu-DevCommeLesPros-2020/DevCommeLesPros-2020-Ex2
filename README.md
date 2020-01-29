@@ -58,8 +58,9 @@ Vous sentez-vous l'âme d'un cryptanalyste ? Il y a un fichier texte à déchiff
 
 1. Complétez l'objectif principal.
 1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
-1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier texte chiffré bonus. La clé est un mot français sans accent.
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le [fichier texte chiffré bonus](https://amubox.univ-amu.fr/s/WzgGAyMf8nHktrg). La clé est un mot français sans accent.
 1. Déchiffrez le fichier texte chiffré bonus avec votre programme `chiffre` et la bonne clé.
+    - `> chiffre -c [clé] -d < chiffré.txt` devrait afficher à l'écran le texte en clair.
 1. Publiez votre code à votre dépôt sur github.com.
 1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur du texte.
 
@@ -72,8 +73,9 @@ Vous sentez-vous l'âme d'un cryptanalyste ? Il y a un fichier MP3 à déchiffre
 1. Complétez l'objectif principal.
 1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
 1. Implémentez correctement les fonctions de chiffrages `chiffre_Vigenere_flux_binaire` et `dechiffre_Vigenere_flux_binaire`.
-1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier MP3 chiffré bonus. La clé est un mot français sans accent (différent de l'objectif bonus 2).
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le [fichier MP3 chiffré bonus(https://amubox.univ-amu.fr/s/WzgGAyMf8nHktrg)]. La clé est un mot français sans accent (différent de l'objectif bonus 2).
 1. Déchiffrez le fichier MP3 chiffré bonus avec votre programme `chiffre` et la bonne clé.
+    - `> chiffre -b -c [clé] -d < chiffré.mp3 > clair.mp3` devrait produire un fichier MP3 lisible par un programme de lecture.
 1. Publiez votre code à votre dépôt sur github.com.
 1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur de la musique.
 
