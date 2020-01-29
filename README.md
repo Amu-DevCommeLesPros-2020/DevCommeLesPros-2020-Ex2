@@ -4,7 +4,7 @@ Modèle de départ pour exercices d'introduction au makefile, à une structure d
 
 ## Instructions de départ
 
-Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1) pour la création de compte et l'installation des programmes et extensions nécéssaires.
+Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1#instructions-de-d%C3%A9part) pour la création de compte et l'installation des programmes et extensions nécéssaires.
 
 1. Créez votre dépôt sur github.com en utilisant ce dépôt-ci (https://github.com/thierryseegers/DevCommeLesPros-2020-Ex2) comme modèle.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
