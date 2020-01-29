@@ -4,7 +4,7 @@ Modèle de départ pour exercices d'introduction au makefile, à une structure d
 
 ## Instructions de départ
 
-Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1) pour la création de compte et l'installation des programmes et extensions nécéssaires.
+Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1#instructions-de-d%C3%A9part) pour la création de compte et l'installation des programmes et extensions nécéssaires.
 
 1. Créez votre dépôt sur github.com en utilisant ce dépôt-ci (https://github.com/thierryseegers/DevCommeLesPros-2020-Ex2) comme modèle.
     - Suivez ces instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
@@ -58,8 +58,9 @@ Vous sentez-vous l'âme d'un cryptanalyste ? Il y a un fichier texte à déchiff
 
 1. Complétez l'objectif principal.
 1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
-1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier texte chiffré bonus. La clé est un mot français sans accent.
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le [fichier texte chiffré bonus](https://amubox.univ-amu.fr/s/WzgGAyMf8nHktrg). La clé est un mot français sans accent.
 1. Déchiffrez le fichier texte chiffré bonus avec votre programme `chiffre` et la bonne clé.
+    - `> chiffre -c [clé] -d < chiffré.txt` devrait afficher à l'écran le texte en clair.
 1. Publiez votre code à votre dépôt sur github.com.
 1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur du texte.
 
@@ -72,8 +73,9 @@ Vous sentez-vous l'âme d'un cryptanalyste ? Il y a un fichier MP3 à déchiffre
 1. Complétez l'objectif principal.
 1. Completez le fichier `makefile` pour compiler et lier un programme appelé `chiffre` constitué de la bibliothèque de chiffrage `libchiffrage.a` et du code dans le fichier `bin/main.c`.
 1. Implémentez correctement les fonctions de chiffrages `chiffre_Vigenere_flux_binaire` et `dechiffre_Vigenere_flux_binaire`.
-1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le fichier MP3 chiffré bonus. La clé est un mot français sans accent (différent de l'objectif bonus 2).
+1. [Cryptanalysez](https://fr.wikipedia.org/wiki/Cryptanalyse) le [fichier MP3 chiffré bonus(https://amubox.univ-amu.fr/s/WzgGAyMf8nHktrg)]. La clé est un mot français sans accent (différent de l'objectif bonus 2).
 1. Déchiffrez le fichier MP3 chiffré bonus avec votre programme `chiffre` et la bonne clé.
+    - `> chiffre -b -c [clé] -d < chiffré.mp3 > clair.mp3` devrait produire un fichier MP3 lisible par un programme de lecture.
 1. Publiez votre code à votre dépôt sur github.com.
 1. Envoyez un e-mail au professeur (thierry.seegers@yahoo.com) avec la clé et l'auteur de la musique.
 
@@ -132,7 +134,7 @@ Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de
 
 Outre les indications données dans l'[exercice précedent](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex1#jai-un-probl%C3%A8me-) à ce sujet, le site https://cryptii.com peut vous aider à comprendre et tester différentes méthodes de (dé)chiffrage sur un texte en clair.
 
-## Correction
+## ## Évaluation
 
 Dans le répertoire `correction`, vous trouverez le script que le professeur utilisera pour automatiser une première partie du processus de correction.
 Pour une liste de dépôts donnée dans `correction/depots.txt`, le script clone et compile le dépôt, lance le programme et affiche le résultat.
