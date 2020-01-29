@@ -20,7 +20,7 @@ void dechiffre_Vigenere_flux_texte(FILE* clair, FILE* chiffre, char const* cle);
 // La fonction lit le fichier avec getc et chiffre les caractères reçus un par un en les incrémentant d'une valeur donné par la clé.
 // La fonction suit le même principe d'utilisation de la clé que (de)chiffre_Vigenere.
 // Les caractères doivent être considérés comme de type "unsigned char". De ce fait, si la valeur
-// incrémentée dépasse la valeur maximale d'un "unsigned char" (i.e. 255), on doit utiliser un modulo. (e.g. 252 + 12 -> 9)
+// incrémentée dépasse la valeur maximale d'un "unsigned char" (c.-à-d. 255), on doit utiliser un modulo. (e.g. 252 + 12 -> 9)
 // Exemple:
 // Fichier clair: [0x00, 0x01, 0x02, 0x10, 0xAB, 0xFC]
 // Clé: "fil"
