@@ -14,9 +14,12 @@ int main()
     int resultat = 0;
 
 // Compare deux chaînes de caractères a et b avec strcmp. Incrémente résultat si a est NULL ou si les deux chaînes sont différentes.
-#define TEST_STR(a, b)  if((a == NULL) || (strcmp(a, b) != 0))  \
-                        {                                       \
-                            resultat += 1;                      \
+#define TEST_STR(a, b)  {                                           \
+                            char *s = a;                            \
+                            if((s == NULL) || (strcmp(s, b) != 0))  \
+                            {                                       \
+                                resultat += 1;                      \
+                            }                                       \
                         }
 
 // Compare le contenu de deux fichiers aux chemins a et b avec la commande diff. Incrémente résultat si les fichiers sont différents.
