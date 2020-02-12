@@ -44,22 +44,22 @@ int main(int argc, char *argv[])
     {
         if(binaire)
         {
-            dechiffre_Vigenere_flux_binaire(stdin, stdout, cle);
+            dechiffre_Vigenere_flux_binaire(stdout, stdin, cle);
         }
         else
         {
-            dechiffre_Vigenere_flux_texte(stdin, stdout, cle);
+            dechiffre_Vigenere_flux_texte(stdout, stdin, cle);
         }
     }
     else
     {
         if(binaire)
         {
-            chiffre_Vigenere_flux_binaire(stdin, stdout, cle);
+            chiffre_Vigenere_flux_binaire(stdout, stdin, cle);
         }
         else
         {
-            chiffre_Vigenere_flux_texte(stdin, stdout, cle);
+            chiffre_Vigenere_flux_texte(stdout, stdin, cle);
         }
     }
 
