@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -184,12 +185,16 @@ int main()
     FILE *fichier_resultat = fopen("build/test/resultat.txt", "w");
     FILE *fichier_clair = fopen("test/clair.txt", "r");
     chiffre_Vigenere_flux_texte(fichier_resultat, fichier_clair, "agatha");
+    fclose(fichier_clair);
+    fclose(fichier_resultat);
     TEST_FILE("build/test/resultat.txt", "test/chiffre.txt");
 
     // Tets dechiffre_Vigenere_flux_texte.
     fichier_resultat = fopen("build/test/resultat.txt", "w");
     FILE *fichier_chiffre = fopen("test/chiffre.txt", "r");
     dechiffre_Vigenere_flux_texte(fichier_resultat, fichier_chiffre, "agatha");
+    fclose(fichier_chiffre);
+    fclose(fichier_resultat);
     TEST_FILE("build/test/resultat.txt", "test/clair.txt");
 
     return resultat;
