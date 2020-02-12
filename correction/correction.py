@@ -25,7 +25,7 @@ def hash_test_code(main_path):
             test_code_hash.update(line.encode())
     return test_code_hash.hexdigest()
 
-PROFESSOR_TEST_CODE_HEXDIGEST = 'baf89724b8363922d57aabb07739353015e20ba720c596c932f593ba0c8b05cb'
+PROFESSOR_TEST_CODE_HEXDIGEST = '22c0d504a3335886a369d75f72f07474b1d10599c294b1b45770e9ffdbc43b95'
 PROFESSOR_CHIFFRE_HEXDIGEST = '60ff41b09e4e1011d3a5f33704ec53df319a248d1de48250a131b809a85cb2db'
 PROFESSOR_CLAIR_HEXDIGEST = '4ef57703aad7ffd9f3129bb46c81a15308f1963e1f12ab00718f3569fde090f3'
 CALLBACKS = pygit2.RemoteCallbacks(credentials=pygit2.KeypairFromAgent("git"))
