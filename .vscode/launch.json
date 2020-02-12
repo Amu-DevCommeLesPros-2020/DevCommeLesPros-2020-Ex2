@@ -5,16 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "test (MacOS)",
-            "type": "lldb",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/Darwin/test",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "make test"
-        },
-        {
-            "name": "test (Linux)",
+            "name": "test (Linux/WSL)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/Linux/test",
@@ -27,6 +18,15 @@
             },
             "miDebuggerArgs": "--quiet",
             "targetArchitecture": "x64",
+            "preLaunchTask": "make test"
+        },
+        {
+            "name": "test (MacOS)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Darwin/test",
+            "args": [],
+            "cwd": "${workspaceFolder}",
             "preLaunchTask": "make test"
         }
     ]
