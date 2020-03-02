@@ -10,12 +10,31 @@ For each depot name found in depots.txt:
     - -3: failed to compile.
 """
 
+import argparse
+import datetime
 import hashlib
 import itertools
 import os
 import platform
+import sys
+import subprocess
 
 import pygit2
+
+ARGPARSER = argparse.ArgumentParser()
+ARGPARSER.add_argument('-t', '--timestamp', dest='timestamp', action='store', metavar='TIMESTAMP(DD-MM-YYY HH24:MM)',
+                       help='Date and time at which to clone the repositories.')
+ARGPARSER.add_argument('-l', '--show-log', dest='showlog', action='store_true',
+                       help='Print git log of repositories.')
+ARGS = ARGPARSER.parse_args()
+
+# Verify timestamp format, if present.
+if ARGS.timestamp:
+    try:
+        datetime.datetime.strptime(ARGS.timestamp, "%d/%m/%Y %H:%M")
+    except ValueError:
+        print('Bad timestamp', sys.exc_info())
+        sys.exit(100)
 
 def hash_test_code(main_path):
     """Hashes file main_path."""
@@ -30,20 +49,47 @@ PROFESSOR_CHIFFRE_HEXDIGEST = '60ff41b09e4e1011d3a5f33704ec53df319a248d1de48250a
 PROFESSOR_CLAIR_HEXDIGEST = '4ef57703aad7ffd9f3129bb46c81a15308f1963e1f12ab00718f3569fde090f3'
 CALLBACKS = pygit2.RemoteCallbacks(credentials=pygit2.KeypairFromAgent("git"))
 
-with open('depots.txt') as remote_depot_names:
-    for remote_depot_name in itertools.dropwhile(lambda line: line.startswith('#'),
-                                                 remote_depot_names):
+with open('depots.txt') as depots_lines:
+    for depots_line in itertools.dropwhile(lambda line: line.startswith('#'),
+                                           depots_lines):
         try:
+            cells = depots_line.rstrip().split(",")
+
             # Craft URL to clone given a depot name.
-            remote_depot_name = remote_depot_name.rstrip()
+            remote_depot_name = cells[0]
             remote_depot_url = 'ssh://git@github.com/' + remote_depot_name + '.git'
             local_depot_path = remote_depot_name.replace('/', '-')
             print(local_depot_path, end=' ')
 
             # Clone the repo.
-            if pygit2.clone_repository(remote_depot_url, local_depot_path, callbacks=CALLBACKS) \
-                    is None:
-                raise RuntimeError('-1')
+            if (not os.path.exists(local_depot_path)) and \
+               (pygit2.clone_repository(remote_depot_url, local_depot_path, callbacks=CALLBACKS) is None):
+                raise RuntimeError('-1 unable to clone repo')
+
+            # If timestamp is specified, checkout at that point in time.
+            timestamp = None
+            if len(cells) > 1:
+                try:
+                    datetime.datetime.strptime(cells[1], "%d/%m/%Y %H:%M")
+                    timestamp = cells[1]
+                except:
+                    raise RuntimeError('-1')
+            elif ARGS.timestamp is not None:
+                timestamp = ARGS.timestamp
+
+            if timestamp is not None:
+                try:
+                    rev_list_cmd = subprocess.run('git rev-list -n 1 --before="' + timestamp + '" master',
+                                                  cwd=local_depot_path, stdout=subprocess.PIPE, shell=True,
+                                                  text=True, check=True)
+                    if not rev_list_cmd.stdout:
+                        raise RuntimeError('-1 repo non-existant at timestamp')
+                except subprocess.CalledProcessError:
+                    raise RuntimeError('-1 git rev-list failed')
+                else:
+                    print(timestamp, end=' ')
+                    os.system('cd ' + local_depot_path + ' && ' +
+                              'git checkout --quiet ' + rev_list_cmd.stdout)
 
             # Confirm test code is intact.
             if hash_test_code(local_depot_path + '/test/main.c') != PROFESSOR_TEST_CODE_HEXDIGEST or \
