@@ -98,12 +98,16 @@ with open('depots.txt') as depots_lines:
                 raise RuntimeError('-2')
 
             # Compile.
-            if os.system('cd ' + local_depot_path + ' && make test') != 0:
+            if os.system('cd ' + local_depot_path + ' && make -s test') != 0:
                 raise RuntimeError('-3')
 
             # Run and print result.
             print(str(os.WEXITSTATUS(os.system('cd ' + local_depot_path + ' && build/' + \
                       platform.system() + '/test'))))
+
+            # If show-log is specified, show log.
+            if ARGS.showlog:
+                os.system('cd ' + local_depot_path + ' && git log --oneline --graph --decorate')
         except pygit2.GitError:
             print('-1')
         except RuntimeError as error:
